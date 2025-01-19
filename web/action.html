@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caisse Action</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <a href="home.html">Home</a>
+        <a href="membre.html">Caisse Membre</a>
+        <a href="action.html">Caisse Action</a>
+        <a href="dashboard.html">Dashboards</a>
+    </nav>
+    <h1>Caisse Action</h1>
+    <div id="app">
+        <div id="caisse-action">
+            <h2>Caisse Action</h2>
+            <div id="ajouter-transaction-action">
+                <h3>Ajouter une Transaction</h3>
+                <label for="action">Action:</label>
+                <input type="text" id="action">
+                <label for="libelle-action">Libellé:</label>
+                <input type="text" id="libelle-action">
+                <label for="montant-action">Montant:</label>
+                <input type="number" id="montant-action">
+                <label for="type-action">Type:</label>
+                <select id="type-action">
+                    <option value="entrée">Entrée</option>
+                    <option value="sortie">Sortie</option>
+                </select>
+                <button id="ajouter-transaction-action-btn">Ajouter Transaction</button>
+            </div>
+            <div id="historique-transactions">
+                <h3>Historique des Transactions</h3>
+                <label for="action-historique">Action:</label>
+                <select id="action-historique">
+                    <!-- Options will be populated by JavaScript -->
+                </select>
+                <button id="afficher-historique">Afficher Historique</button>
+                <button id="rafraichir-actions">Rafraîchir</button>
+                <table id="table-actions">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Libellé</th>
+                            <th>Type</th>
+                            <th>Montant</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Rows will be populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="text/javascript" src="eel.js"></script>
+    <script src="action.js"></script>
+</body>
+</html>

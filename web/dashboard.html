@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboards</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <a href="home.html">Home</a>
+        <a href="membre.html">Caisse Membre</a>
+        <a href="action.html">Caisse Action</a>
+        <a href="dashboard.html">Dashboards</a>
+    </nav>
+    <h1>Dashboards</h1>
+    <div id="app">
+        <div id="tableaux-de-bord">
+            <h2>Tableaux de Bord</h2>
+            <div id="dashboard-caisse-membre">
+                <h3>Tableau de Bord - Caisse Action</h3>
+                <label for="action-caisse-membre">Choisir une action:</label>
+                <select id="action-caisse-membre">
+                    <!-- Options will be populated by JavaScript -->
+                </select>
+                <canvas id="graphique-caisse-membre"></canvas>
+            </div>
+            <div id="dashboard-caisse-action">
+                <h3>Tableau de Bord - Total</h3>
+                <p id="total-entrees-caisse-action">Total des entrées : 0.00 DT</p>
+                <p id="total-sorties-caisse-action">Total des sorties : 0.00 DT</p>
+                <p id="solde-caisse-action">Solde actuel : 0.00 DT</p>
+                <canvas id="graphique-caisse-action"></canvas>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="text/javascript" src="eel.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+</html>
