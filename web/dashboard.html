@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="icone.ico">
     <title>Dashboard</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -46,9 +47,18 @@
                 <canvas id="graphique-caisse-action" width="900" height="700"></canvas>
             </div>
             <div class="dashboard-stats">
-                <p>Total des entrées : <span id="total-entrees-caisse-action">0.00 DT</span></p>
-                <p>Total des sorties : <span id="total-sorties-caisse-action">0.00 DT</span></p>
-                <p>Solde actuel : <span id="solde-caisse-action">0.00 DT</span></p>
+                <div class="stat-card">
+                    <h4>Total des entrées</h4>
+                    <p class="stat-value" id="total-entrees-caisse-action">0.00 DT</p>
+                </div>
+                <div class="stat-card">
+                    <h4>Total des sorties</h4>
+                    <p class="stat-value" id="total-sorties-caisse-action">0.00 DT</p>
+                </div>
+                <div class="stat-card">
+                    <h4>Solde actuel</h4>
+                    <p class="stat-value" id="solde-caisse-action">0.00 DT</p>
+                </div>
             </div>
         </section>
     </main>
