@@ -113,20 +113,128 @@ canvas {
 }
 
 nav {
-    background-color: #333;
-    overflow: hidden;
+    background-color: #4CAF50;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-around;
 }
 
 nav a {
-    float: left;
-    display: block;
     color: white;
-    text-align: center;
-    padding: 14px 20px;
     text-decoration: none;
+    font-size: 16px;
+    padding: 10px 15px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
 }
 
 nav a:hover {
-    background-color: #575757;
+    background-color: #45a049;
+}
+
+nav a.active {
+    background-color: #3d8b40;
+}
+
+/* Dashboard Header */
+.dashboard-header {
+    background-color: #4CAF50;
     color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.dashboard-header h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+/* Main Content */
+.dashboard-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Dashboard Sections */
+.dashboard-section {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    flex: 1 1 calc(50% - 20px); /* Two columns with gap */
+}
+
+.dashboard-section h2 {
+    margin-top: 0;
+    font-size: 20px;
+    color: #4CAF50;
+}
+
+/* Dashboard Controls */
+.dashboard-controls {
+    margin-bottom: 20px;
+}
+
+.dashboard-controls label {
+    font-size: 16px;
+    color: #555;
+    margin-right: 10px;
+}
+
+.dashboard-controls select {
+    padding: 8px 12px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    color: #333;
+    cursor: pointer;
+}
+
+.dashboard-controls select:hover {
+    border-color: #4CAF50;
+}
+
+/* Chart Container */
+.chart-container {
+    width: 100%;
+    height: 300px;
+    margin-bottom: 20px;
+}
+
+/* Dashboard Stats */
+.dashboard-stats {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-stats p {
+    margin: 10px 0;
+    font-size: 16px;
+    color: #555;
+}
+
+.dashboard-stats span {
+    font-weight: bold;
+    color: #333;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .dashboard-section {
+        flex: 1 1 100%; /* Full width on small screens */
+    }
+
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav a {
+        margin: 5px 0;
+    }
 }

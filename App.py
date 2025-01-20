@@ -192,12 +192,21 @@ def mettre_a_jour_dashboard_caisse_action():
 @eel.expose
 def mettre_a_jour_graphique_caisse_membre(action):
     try:
+        # Fetch transactions for the selected action
         transactions = list(collection_actions.find({"action": action}))
-        total_entrees = sum(t["montant"] for t in transactions if t["type"] == "entrée")
-        total_sorties = sum(t["montant"] for t in transactions if t["type"] == "sortie")
+        print(f"Transactions for action '{action}':", transactions)  # Debugging
+
+        # Calculate total entrées and sorties
+        total_entrees = sum(t.get("montant", 0) for t in transactions if t.get("type") == "entrée")
+        total_sorties = sum(t.get("montant", 0) for t in transactions if t.get("type") == "sortie")
+        print(f"Calculated totals - Entrées: {total_entrees}, Sorties: {total_sorties}")  # Debugging
+
+        # Send data to the frontend
         eel.updateGraphiqueCaisseMembre(total_entrees, total_sorties)
     except Exception as e:
+        print(f"Error in mettre_a_jour_graphique_caisse_membre: {str(e)}")
         eel.showError(f"Erreur lors de la mise à jour du graphique : {str(e)}")
+
 
 
 @eel.expose
@@ -223,6 +232,7 @@ def _process_message(message):
     logging.debug(f"Received message: {message}")
     if 'value' not in message:
         logging.error("Missing 'value' key in message")
+
 
 
 # Start the Eel application
