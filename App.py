@@ -7,7 +7,7 @@ import logging
 eel.init('web')
 
 # MongoDB connection
-client = MongoClient("mongodb+srv://samar:92045397@leo.jqwwb.mongodb.net/?retryWrites=true&w=majority&appName=Leo", serverSelectionTimeoutMS=5000)
+client = MongoClient("", serverSelectionTimeoutMS=5000)
 db = client["Leo"]
 collection_cotisations = db["cotisations"]
 collection_caisse_membre = db["caisse_membre"]
