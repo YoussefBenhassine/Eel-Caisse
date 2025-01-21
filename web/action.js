@@ -1,37 +1,37 @@
-// caisse_action.js
+
 document.getElementById("ajouter-transaction-action-btn").addEventListener("click", () => {
     const action = document.getElementById("action").value;
     const libelle = document.getElementById("libelle-action").value;
     const montant = parseFloat(document.getElementById("montant-action").value);
     const type = document.getElementById("type-action").value;
 
-    // Debug: Print values to the console
+    
     console.log("Action:", action);
     console.log("Libellé:", libelle);
     console.log("Montant:", montant);
     console.log("Type:", type);
 
-    // Validate inputs
+    
     if (action && libelle && !isNaN(montant) && type) {
-        // Send data to Python backend
+        
         eel.ajouter_transaction_action(action, libelle, montant, type);
     } else {
         alert("Veuillez remplir tous les champs correctement.");
     }
-    // Clear input fields after adding transaction
+    
     document.getElementById("action").value = "";
     document.getElementById("libelle-action").value = "";
     document.getElementById("montant-action").value = "";
-    document.getElementById("type-action").value = "entrée"; // Reset to default value
+    document.getElementById("type-action").value = "entrée"; 
 });
 
-// Expose function to Python
+
 eel.expose(updateActions);
 function updateActions(data) {
-    console.log("Received transaction history:", data);  // Debugging
+    console.log("Received transaction history:", data);  
     const tbody = document.querySelector("#table-actions tbody");
     if (tbody) {
-        tbody.innerHTML = "";  // Clear existing rows
+        tbody.innerHTML = "";  
         data.forEach(row => {
             const tr = document.createElement("tr");
             tr.innerHTML = `<td>${row.date}</td><td>${row.libelle}</td><td>${row.type}</td><td>${row.montant}</td>`;
@@ -40,13 +40,13 @@ function updateActions(data) {
     }
 }
 
-// Expose function to Python
+
 eel.expose(updateListeActions);
 function updateListeActions(actions) {
-    console.log("Received actions for dropdown:", actions);  // Debugging
+    console.log("Received actions for dropdown:", actions);  
     const select = document.getElementById("action-historique");
     if (select) {
-        select.innerHTML = "";  // Clear existing options
+        select.innerHTML = "";  
         actions.forEach(action => {
             const option = document.createElement("option");
             option.value = action;
@@ -56,13 +56,13 @@ function updateListeActions(actions) {
     }
 }
 
-// Fetch actions when the page loads
+
 document.addEventListener("DOMContentLoaded", () => {
-    eel.mettre_a_jour_liste_actions();  // Fetch and populate the actions dropdown
+    eel.mettre_a_jour_liste_actions();  
 });
-// Fetch data when the page loads
+
 document.addEventListener("DOMContentLoaded", () => {
-    eel.rafraichir_actions();  // Fetch actions data
+    eel.rafraichir_actions(); 
 });
 
 const afficherHistoriqueBtn = document.getElementById("afficher-historique");
