@@ -2,12 +2,15 @@ import eel
 from pymongo import MongoClient
 from datetime import datetime
 import logging
+from dotenv import load_dotenv
+import os
 
 # Initialize Eel
 eel.init('web')
 
+mongodb_url = os.getenv("MONGODB_URL")
 # MongoDB connection
-client = MongoClient("", serverSelectionTimeoutMS=5000)
+client = MongoClient(mongodb_url, serverSelectionTimeoutMS=5000)
 db = client["Leo"]
 collection_cotisations = db["cotisations"]
 collection_caisse_membre = db["caisse_membre"]
