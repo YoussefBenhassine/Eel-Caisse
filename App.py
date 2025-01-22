@@ -242,4 +242,4 @@ def _process_message(message):
 mettre_a_jour_liste_actions()
 mettre_a_jour_dashboard_caisse_membre()
 mettre_a_jour_dashboard_caisse_action()
-eel.start('web/home.html', size=(1200, 700),mode='edge', host='0.0.0.0', port=8080)
+eel.start('home.html', size=(1200, 700),mode='edge', host='0.0.0.0', port=8080)
