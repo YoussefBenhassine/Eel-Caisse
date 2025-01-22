@@ -3,12 +3,17 @@ from pymongo import MongoClient
 from datetime import datetime
 import logging
 from dotenv import load_dotenv
+from flask import Flask, redirect  # Import Flask and redirect
 import os
 
 web_folder = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'web')
 print(f"Web folder path: {web_folder}")
 # Initialize Eel
 eel.init(web_folder)
+app = Flask(__name__)
+@app.route('/')
+def root():
+    return redirect('/home.html')  # Redirect root URL to home.html
 
 mongodb_url = os.getenv("MONGODB_URL")
 # MongoDB connection
@@ -244,4 +249,4 @@ def _process_message(message):
 mettre_a_jour_liste_actions()
 mettre_a_jour_dashboard_caisse_membre()
 mettre_a_jour_dashboard_caisse_action()
-eel.start('home.html', size=(1200, 700),mode='edge', host='0.0.0.0', port=8080)
+eel.start('home.html', size=(1200, 700),mode='edge', host='0.0.0.0', port=8080, flask_app=app)
