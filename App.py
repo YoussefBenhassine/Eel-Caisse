@@ -5,8 +5,9 @@ import logging
 from dotenv import load_dotenv
 import os
 
+web_folder = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'web')
 # Initialize Eel
-eel.init('web')
+eel.init(web_folder)
 
 mongodb_url = os.getenv("MONGODB_URL")
 # MongoDB connection
