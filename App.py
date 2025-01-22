@@ -6,6 +6,7 @@ from dotenv import load_dotenv
 import os
 
 web_folder = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'web')
+print(f"Web folder path: {web_folder}")
 # Initialize Eel
 eel.init(web_folder)
 
